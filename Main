@@ -19,7 +19,7 @@ namespace MainClass
 {
     class Program
     {
-        public static string Result(string temp)
+        public static bool IsPallindrome(string temp)
         {
             char[] TempCharArray = temp.ToCharArray();
             int counter = 0;
@@ -27,17 +27,16 @@ namespace MainClass
                 if (TempCharArray[i].Equals(TempCharArray[TempCharArray.Length - 1 - i]))
                     counter++;
             if (counter == TempCharArray.Length / 2)
-                return temp;
+                return true;
             else
-                return "0";
+                return false;
         }
         static void Main(string[] args)
         {
             string[] vvod = Console.ReadLine().Split(' ', '.', ',', '!', '?');
             foreach (string temp in vvod)
-                if (Result(temp).Equals("0")) continue;
-                else Console.WriteLine(Result(temp));
-
+                if (IsPallindrome(temp)) continue;
+                else Console.WriteLine(temp);
         }
     }
 }
