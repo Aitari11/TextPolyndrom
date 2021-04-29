@@ -1,0 +1,28 @@
+using System;
+
+namespace MainClass
+{
+    class Program
+    {
+        public static string Result(string temp)
+        {
+            char[] TempCharArray = temp.ToCharArray();
+            int counter = 0;
+            for (int i = 0; i < TempCharArray.Length/2; i++)
+                if (TempCharArray[i].Equals(TempCharArray[TempCharArray.Length - 1 - i]))
+                    counter++;
+            if (counter == TempCharArray.Length / 2)
+                return temp;
+            else
+                return "0";
+        }
+        static void Main(string[] args)
+        {
+            string[] vvod = Console.ReadLine().Split(' ', '.', ',', '!', '?');
+            foreach (string temp in vvod)
+                if (Result(temp).Equals("0")) continue;
+                else Console.WriteLine(Result(temp));
+
+        }
+    }
+}
